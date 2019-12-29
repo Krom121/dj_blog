@@ -5,8 +5,14 @@ verify_ssl = true
 
 [dev-packages]
 pylint = "*"
+pipenv = "*"
+pytest = "*"
+pytest-django = "*"
 
 [packages]
+django = "*"
+pillow = "*"
+requests = "*"
 
 [requires]
 python_version = "3.8"
