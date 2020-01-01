@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_list_or_404
 from django.db.models import Count
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Post
@@ -48,6 +48,11 @@ def blog(request):
     }
     return render(request, 'blog.html', context)
 
-def post(request, pk, slug):
-    return render(request, 'post.html', {})
+def post(request, pk):
+    posts = get_list_or_404(Post,pk=pk)
+    
+    context = {
+        'post': posts
+    }
+    return render(request, 'post.html', context)
 
